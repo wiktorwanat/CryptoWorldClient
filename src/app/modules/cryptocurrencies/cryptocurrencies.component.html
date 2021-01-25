@@ -1,13 +1,11 @@
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-<!------ Include the above in your HEAD tag ---------->
+
 <div></div>
 <div>
 <body>
-    <table class="table table-white">
+    <table class="table table-dark">
         <thead>
         <tr>
+            <th scope="col"></th>
             <th scope="col">Symbol</th>
             <th scope="col">Name</th>
             <th scope="col">actualPrice</th>
@@ -21,14 +19,24 @@
         </thead>
         <tbody>
             <tr *ngFor="let cryptocurrency of cryptocurrencies">
-                <th scope="col">{{cryptocurrency.symbol}}</th>
+                <th scope="col"><img class="img" src={{cryptocurrency.cryptocurrencyDetails.logoUrl}}></th>
+                <th scope="col">{{cryptocurrency.symbol}} </th>
                 <th scope="col">{{cryptocurrency.name}}</th>
-                <th scope="col">${{cryptocurrency.actualPrice}}</th>
-                <th scope="col">${{cryptocurrency.marketCap}}</th>
-                <th scope="col">{{cryptocurrency.percent_change_1h}}</th>
-                <th scope="col">{{cryptocurrency.percent_change_24h}}</th>
-                <th scope="col">{{cryptocurrency.percent_change_7d}}</th>
-                <th scope="col">${{cryptocurrency.volume24h}}</th>
+                <th scope="col">${{cryptocurrency.actualPrice|number : '.2-2'}}</th>
+                <th scope="col">${{cryptocurrency.marketCap|number : '.2-2'}}</th>
+                <th scope="col" [ngClass]="{
+                    'positive' : cryptocurrency.percent_change_1h > 0,
+                    'negative' : cryptocurrency.percent_change_1h< 0
+                 }">{{cryptocurrency.percent_change_1h|number : '.2-2'}}%</th>
+                <th scope="col" [ngClass]="{
+                    'positive' : cryptocurrency.percent_change_24h > 0,
+                    'negative' : cryptocurrency.percent_change_24h< 0
+                 }">{{cryptocurrency.percent_change_24h|number : '.2-2'}}%</th>
+                <th scope="col" [ngClass]="{
+                    'positive' : cryptocurrency.percent_change_7d > 0,
+                    'negative' : cryptocurrency.percent_change_7d< 0
+                 }">{{cryptocurrency.percent_change_7d|number : '.2-2'}}%</th>
+                <th scope="col">${{cryptocurrency.volume24h|number : '.2-2'}}</th>
                 <th scope="col"><button class="btn btn-primary">More</button></th>
             </tr>
         </tbody>

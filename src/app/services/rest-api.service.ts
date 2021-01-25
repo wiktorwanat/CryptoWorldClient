@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpErrorResponse } from "@angular/common/http";
+import { HttpClient, HttpErrorResponse ,HttpHeaders} from "@angular/common/http";
 import { retry, catchError } from 'rxjs/operators';
 import { Observable, throwError } from 'rxjs';
 import {Cryptocurrency} from '../shared/models/cryptocurrency.model';
@@ -13,6 +13,9 @@ export class RestApiService {
 
   apiURL = 'http://localhost:8080/api';
 
+  httpOptions = {
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+  };
   constructor(private http: HttpClient) { }
 
 
@@ -31,7 +34,7 @@ export class RestApiService {
 
   //fix this
   public createCryptocurrency(cryptocurrency: Cryptocurrency){
-    return this.http.post(this.apiURL+"cryptocurrency/create",Cryptocurrency,null);
+    return this.http.post(this.apiURL+"cryptocurrency/create",{cryptocurrency},this.httpOptions);
   }
 
 

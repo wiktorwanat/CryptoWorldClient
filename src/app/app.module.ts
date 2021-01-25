@@ -10,6 +10,8 @@ import { RegistrationComponent } from './modules/registration/registration.compo
 import { CryptocurrencyComponent } from './modules/cryptocurrency/cryptocurrency.component';
 import { RestApiService } from './services/rest-api.service';
 import { HttpClientModule } from '@angular/common/http';
+import { AuthInterceptor } from '../app/authInterceptor/authorization.interceptor';
+
 
 @NgModule({
   declarations: [
@@ -18,7 +20,6 @@ import { HttpClientModule } from '@angular/common/http';
     CryptocurrenciesComponent,
     LoginComponent,
     RegistrationComponent,
-    CryptocurrencyComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +27,7 @@ import { HttpClientModule } from '@angular/common/http';
     FormsModule,
     HttpClientModule
   ],
-  providers: [RestApiService],
+  providers: [RestApiService,AuthInterceptor],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
