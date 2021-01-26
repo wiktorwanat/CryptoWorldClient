@@ -11,6 +11,7 @@ import { CryptocurrencyComponent } from './modules/cryptocurrency/cryptocurrency
 import { RestApiService } from './services/rest-api.service';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthInterceptor } from '../app/authInterceptor/authorization.interceptor';
+import { MyCryptocurrenciesComponent } from './modules/my-cryptocurrencies/my-cryptocurrencies.component';
 
 
 @NgModule({
@@ -20,6 +21,7 @@ import { AuthInterceptor } from '../app/authInterceptor/authorization.intercepto
     CryptocurrenciesComponent,
     LoginComponent,
     RegistrationComponent,
+    MyCryptocurrenciesComponent,
   ],
   imports: [
     BrowserModule,

@@ -16,11 +16,12 @@ export class AuthorizationService {
   constructor(private http: HttpClient) { }
 
 
-  public login(username: string , password: string ){
-    this.http.post(this.apiUrl+"signin",{username,password},this.httpOptions);
+  public login(username: string , password: string ): Observable<any> {
+    return this.http.post(this.apiUrl+"signin",{username,password},this.httpOptions);
   }
 
-  public registration(username: string,password: string,email: string){
-    this.http.post(this.apiUrl+"signup",{username,password,email},this.httpOptions);
+  public registration(username: string,password: string,email: string): Observable<any>{
+    return this.http.post(this.apiUrl+"signup",{username,password,email},this.httpOptions);
   }
+  
 }

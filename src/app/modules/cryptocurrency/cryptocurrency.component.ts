@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Input } from '@angular/core';
+import { RestApiService } from '../../services/rest-api.service';
+import { Cryptocurrency } from '../../shared/models/cryptocurrency.model'
+
 
 @Component({
   selector: 'app-cryptocurrency',
@@ -7,9 +10,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CryptocurrencyComponent implements OnInit {
 
-  constructor() { }
+  //cryptocurrency:null;
+  //@Input('cryptocurrencyName') cryptocurrencyName!: string;
+
+  constructor(private restApiService:RestApiService) { }
 
   ngOnInit(): void {
+    //this.restApiService.getCryptocurrency(this.cryptocurrencyName).subscribe(data=>this.cryptocurrency);
   }
 
 }

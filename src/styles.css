@@ -4,3 +4,7 @@
 .navbar-custom { 
     background-color: black; 
 } 
+
+.navbar-expand-md .navbar-nav .dropdown-menu {
+    position: absolute !important;
+}
