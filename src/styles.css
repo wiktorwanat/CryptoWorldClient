@@ -8,3 +8,6 @@
 .navbar-expand-md .navbar-nav .dropdown-menu {
     position: absolute !important;
 }
+
+
+body  { background-color: rgb(48, 44, 44); }

@@ -1,6 +1,8 @@
 import { Component, OnInit,Input } from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
 import { RestApiService } from '../../services/rest-api.service';
 import { Cryptocurrency } from '../../shared/models/cryptocurrency.model'
+
 
 
 @Component({
@@ -10,13 +12,14 @@ import { Cryptocurrency } from '../../shared/models/cryptocurrency.model'
 })
 export class CryptocurrencyComponent implements OnInit {
 
-  //cryptocurrency:null;
-  //@Input('cryptocurrencyName') cryptocurrencyName!: string;
+  cryptocurrency:null;
+  cryptocurrencyName: any;
 
-  constructor(private restApiService:RestApiService) { }
+  constructor(private restApiService:RestApiService,private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    //this.restApiService.getCryptocurrency(this.cryptocurrencyName).subscribe(data=>this.cryptocurrency);
+    this.cryptocurrencyName=this.route.snapshot.paramMap.get('name');
+    this.restApiService.getCryptocurrency(this.cryptocurrencyName).subscribe(data=>this.cryptocurrency);
   }
 
 }

@@ -9,6 +9,11 @@
           <a href="/cryptocurrency" class="nav-link" routerLink="cryptocurrency">Cryptocurrency</a>
         </li>
       </ul>
+      <ul class="navbar-nav" *ngIf="isLoggedIn">
+        <li class="nav-item active">
+          <a href="/myCryptocurrencies" class="nav-link" routerLink="myCryptocurrencies">My Cryptocurrencies</a>
+        </li>
+      </ul>
       <ul class="navbar-nav ml-auto" *ngIf="!isLoggedIn">
         <li class="nav-item">
           <a href="/registration" class="nav-link" routerLink="registration">Sign Up</a>
@@ -18,9 +23,6 @@
         </li>
       </ul>
       <ul class="navbar-nav ml-auto" *ngIf="isLoggedIn">
-        <li class="nav-item">
-          <a href="/myCryptocurrencies" class="nav-link" routerLink="myCryptocurrencies">My Cryptocurrencies</a>
-        </li>
         <li class="nav-item">
           <a href="/profile" class="nav-link" routerLink="profile">{{ username }}</a>
         </li>
