@@ -1,0 +1,23 @@
+<div>
+    <body>
+        
+                    <th scope="col"><img class="img" src={{cryptocurrency.cryptocurrencyDetails.logoUrl}}></th>
+                    <th scope="col">{{cryptocurrency.symbol}} </th>
+                    <th scope="col">{{cryptocurrency.name}}</th>
+                    <th scope="col">${{cryptocurrency.actualPrice|number : '.2-2'}}</th>
+                    <th scope="col">${{cryptocurrency.marketCap|number : '.2-2'}}</th>
+                    <th scope="col" [ngClass]="{
+                        'positive' : cryptocurrency.percent_change_1h > 0,
+                        'negative' : cryptocurrency.percent_change_1h< 0
+                     }">{{cryptocurrency.percent_change_1h|number : '.2-2'}}%</th>
+                    <th scope="col" [ngClass]="{
+                        'positive' : cryptocurrency.percent_change_24h > 0,
+                        'negative' : cryptocurrency.percent_change_24h< 0
+                     }">{{cryptocurrency.percent_change_24h|number : '.2-2'}}%</th>
+                    <th scope="col" [ngClass]="{
+                        'positive' : cryptocurrency.percent_change_7d > 0,
+                        'negative' : cryptocurrency.percent_change_7d< 0
+                     }">{{cryptocurrency.percent_change_7d|number : '.2-2'}}%</th>
+                    <th scope="col">${{cryptocurrency.volume24h|number : '.2-2'}}</th>
+    </body>
+    </div>

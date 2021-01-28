@@ -34,7 +34,7 @@ export class RestApiService {
 
   //fix this
   public createCryptocurrency(cryptocurrency: Cryptocurrency){
-    return this.http.post(this.apiURL+"cryptocurrency/create",{cryptocurrency},this.httpOptions);
+    return this.http.post(this.apiURL+"/cryptocurrency/create",{cryptocurrency},this.httpOptions);
   }
 
 

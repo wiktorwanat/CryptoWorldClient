@@ -12,7 +12,7 @@ import { Cryptocurrency } from '../../shared/models/cryptocurrency.model'
 })
 export class CryptocurrencyComponent implements OnInit {
 
-  cryptocurrency:null;
+  cryptocurrency!:Cryptocurrency;
   cryptocurrencyName: any;
 
   constructor(private restApiService:RestApiService,private route: ActivatedRoute) { }

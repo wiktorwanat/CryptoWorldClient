@@ -8,10 +8,10 @@ import { CryptocurrenciesComponent } from './modules/cryptocurrencies/cryptocurr
 import { LoginComponent } from './modules/login/login.component';
 import { RegistrationComponent } from './modules/registration/registration.component';
 import { CryptocurrencyComponent } from './modules/cryptocurrency/cryptocurrency.component';
-import { RestApiService } from './services/rest-api.service';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule,HTTP_INTERCEPTORS  } from '@angular/common/http';
 import { AuthInterceptor } from '../app/authInterceptor/authorization.interceptor';
 import { MyCryptocurrenciesComponent } from './modules/my-cryptocurrencies/my-cryptocurrencies.component';
+import { HomeComponent } from './modules/home/home.component';
 
 
 @NgModule({
@@ -22,6 +22,7 @@ import { MyCryptocurrenciesComponent } from './modules/my-cryptocurrencies/my-cr
     LoginComponent,
     RegistrationComponent,
     MyCryptocurrenciesComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
@@ -29,7 +30,9 @@ import { MyCryptocurrenciesComponent } from './modules/my-cryptocurrencies/my-cr
     FormsModule,
     HttpClientModule
   ],
-  providers: [RestApiService,AuthInterceptor],
+  providers: [
+      { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

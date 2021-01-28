@@ -5,9 +5,11 @@ import { CryptocurrencyComponent } from './modules/cryptocurrency/cryptocurrency
 import { LoginComponent } from './modules/login/login.component';
 import { RegistrationComponent } from './modules/registration/registration.component';
 import { MyCryptocurrenciesComponent } from './modules/my-cryptocurrencies/my-cryptocurrencies.component';
+import { HomeComponent } from './modules/home/home.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'home', pathMatch: 'full'},
+  { path: '', redirectTo: 'home',pathMatch:'full'},
+  {path:'home',component: HomeComponent},
   {path:'cryptocurrency',component: CryptocurrenciesComponent},
   {path:'cryptocurrency/:name',component: CryptocurrencyComponent},
   {path:'login',component: LoginComponent},
