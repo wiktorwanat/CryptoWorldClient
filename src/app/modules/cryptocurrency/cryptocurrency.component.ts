@@ -12,14 +12,22 @@ import { Cryptocurrency } from '../../shared/models/cryptocurrency.model'
 })
 export class CryptocurrencyComponent implements OnInit {
 
-  cryptocurrency!:Cryptocurrency;
+  cryptocurrency:Cryptocurrency=new Cryptocurrency();
   cryptocurrencyName: any;
 
   constructor(private restApiService:RestApiService,private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.cryptocurrencyName=this.route.snapshot.paramMap.get('name');
-    this.restApiService.getCryptocurrency(this.cryptocurrencyName).subscribe(data=>this.cryptocurrency);
+    this.restApiService.getCryptocurrency(this.cryptocurrencyName).subscribe(
+      data=>{
+        this.cryptocurrency=data;
+      }
+    );
+  }
+
+  public addCryptocurrencytoUserFavourite():void{
+    this.restApiService.addCryptocurrencytoUserFavouriteList(this.cryptocurrencyName);
   }
 
 }

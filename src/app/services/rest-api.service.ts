@@ -32,11 +32,17 @@ export class RestApiService {
     return this.http.delete(this.apiURL+"/cryptocurrency/"+cryptocurrencyname).pipe(retry(1), catchError(this.handleError));
   }
 
-  //fix this
   public createCryptocurrency(cryptocurrency: Cryptocurrency){
     return this.http.post(this.apiURL+"/cryptocurrency/create",{cryptocurrency},this.httpOptions);
   }
 
+  public addCryptocurrencytoUserFavouriteList(cryptocurrencyname: string){
+    this.http.post(this.apiURL+"/cryptocurrency/"+cryptocurrencyname,this.httpOptions);
+  }
+
+  public getUserFavouriteCryptocurrencyList(){
+    return this.http.get<Cryptocurrency[]>(this.apiURL+"/myCryptocurrencies").pipe(retry(1), catchError(this.handleError));
+  }
 
   handleError(error: HttpErrorResponse) {
     let errorMessage = 'Unknown error!';
@@ -48,4 +54,5 @@ export class RestApiService {
     window.alert(errorMessage);
     return throwError(errorMessage);
   }
+  
 }

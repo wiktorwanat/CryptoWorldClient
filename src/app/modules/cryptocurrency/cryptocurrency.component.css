@@ -1,0 +1,44 @@
+div.basic
+{
+     -moz-border-radius: 6px;
+     -webkit-border-radius: 6px;
+     background-color: black;
+     border: solid 1px #3498db;
+     border-radius: 6px;
+     line-height: 18px;
+     overflow: hidden;
+     padding: 12px;
+     color:whitesmoke;
+}
+
+.positive {
+    color: green;
+}
+
+.negative {
+    color: red;
+}
+
+.button {
+    border: none;
+    color: black;
+    padding: 10px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 10px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+  }
+  
+  .button1 {
+    background-color: yellow; 
+    color: black; 
+    border: 2px solid yellow;
+  }
+  
+  .button1:hover {
+    background-color: orange;
+    color: orange;
+  }
