@@ -16,7 +16,7 @@
             </tr>
             </thead>
             <tbody>
-                <tr [routerLink]="['/cryptocurrency/', cryptocurrency.name]" *ngFor="let cryptocurrency of userFavouriteCryptocurrencies">
+                <tr *ngFor="let cryptocurrency of userFavouriteCryptocurrencies">
                     <th scope="col"><img class="img" src={{cryptocurrency.cryptocurrencyDetails.logoUrl}}></th>
                     <th scope="col">{{cryptocurrency.symbol}} </th>
                     <th scope="col">{{cryptocurrency.name}}</th>

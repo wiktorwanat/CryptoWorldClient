@@ -23,6 +23,7 @@ export class MyCryptocurrenciesComponent implements OnInit {
       console.log(data);
       this.userFavouriteCryptocurrencies=data;
     })
+    console.log(this.userFavouriteCryptocurrencies[0]);
   }
 
 }

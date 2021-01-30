@@ -12,6 +12,8 @@ import { HttpClientModule,HTTP_INTERCEPTORS  } from '@angular/common/http';
 import { AuthInterceptor } from '../app/authInterceptor/authorization.interceptor';
 import { MyCryptocurrenciesComponent } from './modules/my-cryptocurrencies/my-cryptocurrencies.component';
 import { HomeComponent } from './modules/home/home.component';
+import { FooterComponent } from './modules/footer/footer.component';
+import { HeaderComponent } from './modules/header/header.component';
 
 
 @NgModule({
@@ -23,6 +25,8 @@ import { HomeComponent } from './modules/home/home.component';
     RegistrationComponent,
     MyCryptocurrenciesComponent,
     HomeComponent,
+    FooterComponent,
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,

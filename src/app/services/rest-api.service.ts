@@ -13,9 +13,6 @@ export class RestApiService {
 
   apiURL = 'http://localhost:8080/api';
 
-  httpOptions = {
-    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-  };
   constructor(private http: HttpClient) { }
 
 
@@ -33,11 +30,13 @@ export class RestApiService {
   }
 
   public createCryptocurrency(cryptocurrency: Cryptocurrency){
-    return this.http.post(this.apiURL+"/cryptocurrency/create",{cryptocurrency},this.httpOptions);
+    return this.http.post(this.apiURL+"/cryptocurrency/create",{cryptocurrency});
   }
 
-  public addCryptocurrencytoUserFavouriteList(cryptocurrencyname: string){
-    this.http.post(this.apiURL+"/cryptocurrency/"+cryptocurrencyname,this.httpOptions);
+  public addCryptocurrencytoUserFavouriteList(cryptocurrencyname: string):Observable<any>{
+    console.log("elo");
+    console.log(this.apiURL+"/cryptocurrency/"+cryptocurrencyname);
+    return this.http.post<any>(this.apiURL+"/cryptocurrency/"+cryptocurrencyname,{});
   }
 
   public getUserFavouriteCryptocurrencyList(){
