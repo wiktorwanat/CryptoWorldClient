@@ -2,13 +2,14 @@ div.basic
 {
      -moz-border-radius: 6px;
      -webkit-border-radius: 6px;
-     background-color: black;
      border: solid 1px #3498db;
      border-radius: 6px;
      line-height: 18px;
      overflow: hidden;
      padding: 12px;
      color:whitesmoke;
+     background: transparent !important;
+     text-align: center;
 }
 
 .positive {
@@ -42,3 +43,4 @@ div.basic
     background-color: orange;
     color: orange;
   }
+

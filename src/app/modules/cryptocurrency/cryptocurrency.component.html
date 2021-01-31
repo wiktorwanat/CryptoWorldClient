@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row cryptocurrencies">
     <div class="col-md-4 basic">
         <img class="img image" src={{cryptocurrency.cryptocurrencyDetails.logoUrl}}>
         <h1>{{cryptocurrency.name}}</h1>
@@ -6,7 +6,7 @@
 
         <button class="button button1" (click)="addCryptocurrencytoUserFavourite()">Add to Favourite!</button>
     </div>
-    <div class="col-md-4 basic" >
+    <div class="col-md-4 basic " >
         <h3>actual price</h3><p >${{cryptocurrency.actualPrice|number : '.2-2'}}</p>
         <h3>market cap </h3> <p>${{cryptocurrency.actualPrice|number : '.2-2'}}</p>
         <h3>volumen</h3><p>${{cryptocurrency.volume24h|number : '.2-2'}}</p>
