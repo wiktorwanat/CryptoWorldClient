@@ -9,17 +9,17 @@ const USER_KEY = 'auth-user';
 export class TokenStorageService {
 
 
-
-  constructor() { }
-
-  public logout(){
-    window.sessionStorage.clear();
-    console.log("User successfully logout");
+  constructor() {
   }
 
-  public saveTokenIntoStorage(token:string):void{
+  public logout(): void {
+    window.sessionStorage.clear();
+    console.log('User successfully logout');
+  }
+
+  public saveTokenIntoStorage(token: string): void {
     window.sessionStorage.removeItem(TOKEN_KEY);
-    window.sessionStorage.setItem(TOKEN_KEY,token);
+    window.sessionStorage.setItem(TOKEN_KEY, token);
   }
 
   public getToken(): string | null {
@@ -30,7 +30,7 @@ export class TokenStorageService {
     const user = window.sessionStorage.getItem(USER_KEY);
     if (user) {
       return JSON.parse(user);
-    }else{
+    } else {
       return {};
     }
   }
@@ -39,5 +39,5 @@ export class TokenStorageService {
     window.sessionStorage.removeItem(USER_KEY);
     window.sessionStorage.setItem(USER_KEY, JSON.stringify(user));
   }
-  
+
 }

@@ -7,21 +7,22 @@ import { Observable } from 'rxjs';
 })
 export class AuthorizationService {
 
-  apiUrl="http://localhost:8080/api/auth/";
+  apiUrl = 'http://localhost:8080/api/auth/';
 
   httpOptions = {
-    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+    headers: new HttpHeaders({'Content-Type': 'application/json'})
   };
 
-  constructor(private http: HttpClient) { }
-
-
-  public login(username: string , password: string ): Observable<any> {
-    return this.http.post(this.apiUrl+"signin",{username,password},this.httpOptions);
+  constructor(private http: HttpClient) {
   }
 
-  public registration(username: string,password: string,email: string): Observable<any>{
-    return this.http.post(this.apiUrl+"signup",{username,password,email},this.httpOptions);
+
+  public login(username: string, password: string): Observable<any> {
+    return this.http.post(this.apiUrl + 'signin', {username, password}, this.httpOptions);
   }
-  
+
+  public registration(username: string, password: string, email: string): Observable<any> {
+    return this.http.post(this.apiUrl + 'signup', {username, password, email}, this.httpOptions);
+  }
+
 }

@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { CryptocurrenciesComponent } from './modules/cryptocurrencies/cryptocurrencies.component';
-import { CryptocurrencyComponent } from './modules/cryptocurrency/cryptocurrency.component';
-import { LoginComponent } from './modules/login/login.component';
-import { RegistrationComponent } from './modules/registration/registration.component';
-import { MyCryptocurrenciesComponent } from './modules/my-cryptocurrencies/my-cryptocurrencies.component';
-import { HomeComponent } from './modules/home/home.component';
+import { CryptocurrenciesComponent } from './components/cryptocurrencies/cryptocurrencies.component';
+import { CryptocurrencyComponent } from './components/cryptocurrency/cryptocurrency.component';
+import { LoginComponent } from './components/login/login.component';
+import { RegistrationComponent } from './components/registration/registration.component';
+import { MyCryptocurrenciesComponent } from './components/my-cryptocurrencies/my-cryptocurrencies.component';
+import { HomeComponent } from './components/home/home.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home',pathMatch:'full'},
