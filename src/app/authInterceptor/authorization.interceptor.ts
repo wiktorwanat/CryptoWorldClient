@@ -9,12 +9,9 @@ import { Observable } from 'rxjs';
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
 
-  // TOKEN_HEADER_KEY = 'Authorization';
-  constructor(private token: TokenStorageService) {
-  }
+  constructor(private token: TokenStorageService) {}
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    console.log('intercept');
     const token = this.token.getToken();
     if (token != null) {
       req = req.clone({setHeaders: {Authorization: 'Bearer ' + token}});

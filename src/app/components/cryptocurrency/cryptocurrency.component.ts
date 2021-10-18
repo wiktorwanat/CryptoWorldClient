@@ -27,8 +27,7 @@ export class CryptocurrencyComponent implements OnInit {
   }
 
   public addCryptocurrencytoUserFavourite(): void {
-    console.log('cos sie dzieje?');
-    this.restApiService.addCryptocurrencytoUserFavouriteList(this.cryptocurrencyName);
+    this.restApiService.addCryptocurrencytoUserFavouriteList(this.cryptocurrencyName).subscribe();
   }
 
 }
