@@ -17,13 +17,6 @@ img {
   color: darkslategrey;
 }
 
-cryptocurrencies {
-  background: transparent !important;
-  text-align: center;
-  width: 80%;
-
-}
-
 .table-wrap:before {
   position: absolute;
   background: url("https://res.cloudinary.com/cryptoworld/image/upload/v1612094648/blockchain_vochhk.jpg");

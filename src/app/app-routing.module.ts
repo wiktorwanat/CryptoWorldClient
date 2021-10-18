@@ -6,19 +6,22 @@ import { LoginComponent } from './components/login/login.component';
 import { RegistrationComponent } from './components/registration/registration.component';
 import { MyCryptocurrenciesComponent } from './components/my-cryptocurrencies/my-cryptocurrencies.component';
 import { HomeComponent } from './components/home/home.component';
+import { NotificationsComponent } from './components/notifications/notifications.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'home',pathMatch:'full'},
-  {path:'home',component: HomeComponent},
-  {path:'cryptocurrency',component: CryptocurrenciesComponent},
-  {path:'cryptocurrency/:name',component: CryptocurrencyComponent},
-  {path:'login',component: LoginComponent},
-  {path:'registration',component: RegistrationComponent},
-  {path:'myCryptocurrencies',component:MyCryptocurrenciesComponent}
+  {path: '', redirectTo: 'home', pathMatch: 'full'},
+  {path: 'home', component: HomeComponent},
+  {path: 'cryptocurrency', component: CryptocurrenciesComponent},
+  {path: 'cryptocurrency/:name', component: CryptocurrencyComponent},
+  {path: 'login', component: LoginComponent},
+  {path: 'registration', component: RegistrationComponent},
+  {path: 'myCryptocurrencies', component: MyCryptocurrenciesComponent},
+  {path: 'notifications', component: NotificationsComponent}
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+}

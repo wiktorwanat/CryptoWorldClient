@@ -14,6 +14,9 @@ import { MyCryptocurrenciesComponent } from './components/my-cryptocurrencies/my
 import { HomeComponent } from './components/home/home.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
+import { NotificationsComponent } from './components/notifications/notifications.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+
 
 
 @NgModule({
@@ -27,12 +30,14 @@ import { HeaderComponent } from './components/header/header.component';
     HomeComponent,
     FooterComponent,
     HeaderComponent,
+    NotificationsComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    FontAwesomeModule
   ],
   providers: [
       { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }

@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-md bg-custom-2 navbar-custom flex-row navbar-dark">
+<nav class="navbar navbar-expand-md bg-custom navbar-custom flex-row navbar-dark sticky-top">
   <div class="container">
     <a class="navbar-brand" href="/home">
       <img src="https://res.cloudinary.com/cryptoworld/image/upload/v1611605764/logo_ffml8d.png">
@@ -19,6 +19,11 @@
           <a href="/myCryptocurrencies" class="nav-link" routerLink="myCryptocurrencies">My Cryptocurrencies</a>
         </li>
       </ul>
+      <ul class="navbar-nav" *ngIf="isLoggedIn">
+        <li class="nav-item active">
+          <a href="/notifications" class="nav-link" routerLink="notifications">Notifications</a>
+        </li>
+      </ul>
       <ul class="navbar-nav ml-auto" *ngIf="!isLoggedIn">
         <li class="nav-item-active">
           <a href="/registration" class="nav-link" routerLink="registration">Sign Up</a>
@@ -28,6 +33,9 @@
         </li>
       </ul>
       <ul class="navbar-nav ml-auto" *ngIf="isLoggedIn">
+        <li class="nav-item">
+          <fa-icon class="icon" [icon]="userIcon"></fa-icon>
+        </li>
         <li class="nav-item-active">
           <a href="/profile" class="nav-link" routerLink="profile"> Hi {{ username }} !</a>
         </li>

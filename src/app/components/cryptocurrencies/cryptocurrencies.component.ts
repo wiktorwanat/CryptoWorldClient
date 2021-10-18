@@ -20,7 +20,6 @@ export class CryptocurrenciesComponent implements OnInit {
 
   loadAllCryptocurrencies(): void {
     this.restApiService.getAllCryptocurrencies().subscribe((data: {}) => {
-      console.log(data);
       this.cryptocurrencies = data;
     });
   }

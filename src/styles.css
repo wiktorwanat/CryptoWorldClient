@@ -1,13 +1,7 @@
-/* You can add global styles to this file, and also import other style files */
-
-
-.navbar-custom { 
-    background-color: black; 
-} 
-
-.navbar-expand-md .navbar-nav .dropdown-menu {
-    position: absolute !important;
+body  {
+  background-color: rgb(251, 207, 40);
+  background-image:  url(https://res.cloudinary.com/cryptoworld/image/upload/v1612094648/blockchain_vochhk.jpg);
+  background-size: cover;
+  background-position: left top;
+  background-repeat: repeat;
 }
-
-
-body  { background-image: url('https://res.cloudinary.com/cryptoworld/image/upload/v1612094648/blockchain_vochhk.jpg') }

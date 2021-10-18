@@ -13,23 +13,16 @@ img {
 }
 
 .bg {
-  color: darkslategrey;
-}
-
-cryptocurrencies {
-  background: transparent !important;
-  text-align: center;
-  border: 0.1px;
-  width: 100%;
+  color:darkslategrey;
 }
 
 .table-wrap:before {
   position: absolute;
-  background: url("https://res.cloudinary.com/cryptoworld/image/upload/v1612094648/blockchain_vochhk.jpg");
-  filter: blur(400px);
-  -o-filter: blur(4px);
-  -ms-filter: blur(4px);
-  -moz-filter: blur(4px);
+  background:url("https://res.cloudinary.com/cryptoworld/image/upload/v1612094648/blockchain_vochhk.jpg");
+  filter:blur(400px);
+  -o-filter:blur(4px);
+  -ms-filter:blur(4px);
+  -moz-filter:blur(4px);
   -webkit-filter: blur(12px);
   content: '';
   left: 0;

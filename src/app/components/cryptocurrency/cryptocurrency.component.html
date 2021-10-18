@@ -1,58 +1,93 @@
-<div class="row cryptocurrencies">
-  <div class="col-md-4 basic">
-    <img class="img image" src={{cryptocurrency.cryptocurrencyDetails.logoUrl}}>
-    <h1>{{cryptocurrency.name}}</h1>
-    <h3>{{cryptocurrency.symbol}}</h3>
-
-    <button class="button button1" (click)="addCryptocurrencytoUserFavourite()">Add to Favourite!</button>
-  </div>
-  <div class="col-md-4 basic ">
-    <h3>actual price</h3>
-    <p>${{cryptocurrency.actualPrice|number : '.2-2'}}</p>
-    <h3>market cap </h3>
-    <p>${{cryptocurrency.actualPrice|number : '.2-2'}}</p>
-    <h3>volumen</h3>
-    <p>${{cryptocurrency.volume24h|number : '.2-2'}}</p>
-    <h3>1h change</h3>
-    <p [ngClass]="{
-            'positive' : cryptocurrency.percent_change_1h > 0,
-            'negative' : cryptocurrency.percent_change_1h< 0
-         }">{{cryptocurrency.percent_change_1h|number : '.2-2'}}%</p>
-    <h3>24h change</h3>
-    <p [ngClass]="{
-            'positive' : cryptocurrency.percent_change_24h > 0,
-            'negative' : cryptocurrency.percent_change_24h< 0
-         }">{{cryptocurrency.percent_change_24h|number : '.2-2'}}%</p>
-    <h3>7d change </h3>
-    <p [ngClass]="{
-            'positive' : cryptocurrency.percent_change_7d > 0,
-            'negative' : cryptocurrency.percent_change_7d< 0
-         }">{{cryptocurrency.percent_change_7d|number : '.2-2'}}%</p>
-  </div>
-  <div class="col-md-4 basic">
-    <h3>What is {{cryptocurrency.name}}?</h3>
-    <p>{{cryptocurrency.cryptocurrencyDetails.description}}</p>
-
-    <h3>Website</h3>
-    <p>{{cryptocurrency.cryptocurrencyDetails.websiteUrl}}</p>
-
-    <h3>Twitter</h3>
-    <p>{{cryptocurrency.cryptocurrencyDetails.twitterUrl}}</p>
-
-    <h3>Forum</h3>
-    <p>{{cryptocurrency.cryptocurrencyDetails.forumUrl}}</p>
-
-    <h3>Reddit</h3>
-    <p>{{cryptocurrency.cryptocurrencyDetails.redditUrl}}</p>
-
-    <h3>Technical Documentation</h3>
-    <p>{{cryptocurrency.cryptocurrencyDetails.technicalDocumentationUrl}}</p>
-
-    <h3>Source Code</h3>
-    <p>{{cryptocurrency.cryptocurrencyDetails.sourceCodeUrl}}</p>
-
-    <h3>Creation Date</h3>
-    <p>{{cryptocurrency.cryptocurrencyDetails.dateOfCreation}}</p>
-
+<div class="content">
+  <div class="container">
+    <div class="row info1">
+      <div class="col basic">
+        <img class="img" src={{cryptocurrency.cryptocurrencyDetails.logoUrl}}>
+        <h1>{{cryptocurrency.name}}</h1>
+        <h6>{{cryptocurrency.symbol}}</h6>
+        <div class="addButton">
+          <h2>What is {{cryptocurrency.name}}?</h2>
+          <p>{{cryptocurrency.cryptocurrencyDetails.description}}</p>
+        </div>
+        <button type="button" class="btn btn-secondary btn-sm" (click)="addCryptocurrencytoUserFavourite()">
+          <fa-icon [icon]="plusIcon"></fa-icon> Add to Favourite!
+        </button>
+      </div>
+    </div>
+    <div class="row info2">
+        <div class="col basic">
+          <h2>Actual Price</h2>
+          <h3>${{ cryptocurrency.actualPrice | number : '.2-2' }}</h3>
+        </div>
+        <div class="col basic">
+          <h2>MarketCap </h2>
+          <h3>${{ cryptocurrency.actualPrice|number : '.2-2' }}</h3>
+        </div>
+        <div class="col basic">
+          <h2>Volumen</h2>
+          <h3>${{ cryptocurrency.volume24h | number : '.2-2' }}</h3>
+        </div>
+    </div>
+    <div class="row info2">
+      <div class="col basic">
+        <h2>1h Change</h2>
+        <h3 [ngClass]="{
+               'positive' : cryptocurrency.percent_change_1h > 0,
+                'negative' : cryptocurrency.percent_change_1h < 0
+            }">{{ cryptocurrency.percent_change_1h | number : '.2-2' }}%</h3>
+      </div>
+      <div class="col basic">
+        <h2>24h Change</h2>
+        <h3 [ngClass]="{
+               'positive' : cryptocurrency.percent_change_24h > 0,
+               'negative' : cryptocurrency.percent_change_24h < 0
+            }">{{ cryptocurrency.percent_change_24h | number : '.2-2' }}%</h3>
+      </div>
+      <div class="col basic">
+        <h2>7d Change </h2>
+        <h3 [ngClass]="{
+               'positive' : cryptocurrency.percent_change_7d > 0,
+               'negative' : cryptocurrency.percent_change_7d < 0
+            }">{{ cryptocurrency.percent_change_7d | number : '.2-2' }}%</h3>
+      </div>
+    </div>
+    <div class="row info3">
+        <div class="col routers basic" *ngIf="cryptocurrency.cryptocurrencyDetails.websiteUrl">
+          <button type="button" class="btn btn-primary btn-sm" (click)="goToWebsite()">
+            <fa-icon [icon]="websiteIcon"></fa-icon> Website
+          </button>
+        </div>
+        <div class="col routers basic" *ngIf="cryptocurrency.cryptocurrencyDetails.twitterUrl">
+          <button type="button" class="btn btn-primary btn-sm" (click)="goToTwitter()">
+            <fa-icon [icon]="twitterIcon"></fa-icon> Twitter
+          </button>
+        </div>
+        <div class="col routers basic" *ngIf="cryptocurrency.cryptocurrencyDetails.forumUrl">
+          <button type="button" class="btn btn-primary btn-sm" (click)="goToForum()">
+            <fa-icon [icon]="redirectIcon"></fa-icon> Forum
+          </button>
+        </div>
+        <div class="col routers basic" *ngIf="cryptocurrency.cryptocurrencyDetails.redditUrl">
+          <button type="button" class="btn btn-primary btn-sm" (click)="goToReddit()">
+            <fa-icon [icon]="redditIcon"></fa-icon> Reddit
+          </button>
+        </div>
+        <div class="col routers basic" *ngIf="cryptocurrency.cryptocurrencyDetails.technicalDocumentationUrl">
+          <button type="button" class="btn btn-primary btn-sm" (click)="goToDocumentation()">
+            <fa-icon [icon]="redirectIcon"></fa-icon> Documentation
+          </button>
+        </div>
+        <div class="col routers basic" *ngIf="cryptocurrency.cryptocurrencyDetails.sourceCodeUrl">
+          <button type="button" class="btn btn-primary btn-sm" (click)="goToSourceSite()">
+            <fa-icon [icon]="githubIcon"></fa-icon> Source Code
+          </button>
+        </div>
+      </div>
+    <div class="row">
+      <div class="col routers basic" *ngIf="cryptocurrency.cryptocurrencyDetails.dateOfCreation">
+        <h5>Creation Date</h5>
+        <h6>{{cryptocurrency.cryptocurrencyDetails.dateOfCreation}}</h6>
+      </div>
+    </div>
   </div>
 </div>
