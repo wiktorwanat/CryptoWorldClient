@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RestApiService } from '../../services/rest-api.service';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-cryptocurrencies',
@@ -9,6 +10,8 @@ import { RestApiService } from '../../services/rest-api.service';
 export class CryptocurrenciesComponent implements OnInit {
 
   cryptocurrencies: any = [];
+  searchText = '';
+  searchIcon = faSearch;
 
   constructor(public restApiService: RestApiService) {
   }

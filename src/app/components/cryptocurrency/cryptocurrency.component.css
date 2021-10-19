@@ -1,14 +1,14 @@
-content{
-  background:url("https://res.cloudinary.com/cryptoworld/image/upload/v1612094648/blockchain_vochhk.jpg");
-  filter:blur(400px);
-  -o-filter:blur(4px);
-  -ms-filter:blur(4px);
-  -moz-filter:blur(4px);
+content {
+  background: url("https://res.cloudinary.com/cryptoworld/image/upload/v1612094648/blockchain_vochhk.jpg");
+  filter: blur(400px);
+  -o-filter: blur(4px);
+  -ms-filter: blur(4px);
+  -moz-filter: blur(4px);
   -webkit-filter: blur(12px);
   z-index: 1;
 }
 
-.content.row{
+.content.row {
   position: relative;
   z-index: 2;
 }
@@ -19,7 +19,7 @@ div.basic {
   color: whitesmoke;
   text-align: center;
   position: center;
-  z-index:5;
+  z-index: 5;
   margin: 10px;
 }
 
@@ -44,21 +44,21 @@ div.basic {
   cursor: pointer;
 }
 
-.routers{
-  margin:10px
+.routers {
+  margin: 10px
 }
 
-.info1{
-  margin-top:50px;
+.info1 {
+  margin-top: 50px;
   margin-bottom: 30px;
 }
 
 .info2 {
-  margin-top:10px;
+  margin-top: 10px;
   margin-bottom: 10px;
 }
 
-.info3{
-  margin-top:65px;
+.info3 {
+  margin-top: 65px;
 }
 

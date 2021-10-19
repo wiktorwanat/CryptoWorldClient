@@ -16,6 +16,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
 import { NotificationsComponent } from './components/notifications/notifications.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { SearchPipe } from './pipes/search.pipe';
 
 
 
@@ -31,6 +32,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     FooterComponent,
     HeaderComponent,
     NotificationsComponent,
+    SearchPipe,
   ],
   imports: [
     BrowserModule,

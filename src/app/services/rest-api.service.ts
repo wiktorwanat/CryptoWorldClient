@@ -40,14 +40,22 @@ export class RestApiService {
   }
 
   public addCryptocurrencytoUserFavouriteList(cryptocurrencyname: string): Observable<any> {
-    return this.http.post(this.apiURL + '/cryptocurrency/addToFavourite/' + cryptocurrencyname, this.httpOptions).pipe(
+    return this.http.post(this.apiURL + '/myCryptocurrency/add/' + cryptocurrencyname, this.httpOptions).pipe(
       retry(1),
       catchError(this.handleError)
     );
   }
 
+  public removeCryptocurrencyFromUserFavouriteList(cryptocurrencyname: string): Observable<any> {
+    return this.http.post(this.apiURL + '/myCryptocurrency/remove/' + cryptocurrencyname, this.httpOptions).pipe(
+      retry(1),
+      catchError(this.handleError)
+    );
+  }
+
+
   public getUserFavouriteCryptocurrencyList(): Observable<Cryptocurrency[]> {
-    return this.http.get<Cryptocurrency[]>(this.apiURL + '/myCryptocurrencies')
+    return this.http.get<Cryptocurrency[]>(this.apiURL + '/myCryptocurrency')
       .pipe(
         retry(1),
         catchError(this.handleError)

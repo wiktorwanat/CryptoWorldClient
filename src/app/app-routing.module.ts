@@ -15,7 +15,7 @@ const routes: Routes = [
   {path: 'cryptocurrency/:name', component: CryptocurrencyComponent},
   {path: 'login', component: LoginComponent},
   {path: 'registration', component: RegistrationComponent},
-  {path: 'myCryptocurrencies', component: MyCryptocurrenciesComponent},
+  {path: 'myCryptocurrency', component: MyCryptocurrenciesComponent},
   {path: 'notifications', component: NotificationsComponent}
 ];
 
