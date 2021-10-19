@@ -71,6 +71,18 @@
 
 }
 
+.alert-danger {
+  background-color: #111;
+  color: #6B0F1A;
+  font-size: 12px;
+}
+
+.alert-success{
+  background-color: #111;
+  color: whitesmoke;
+  border: 0px;
+}
+
 .form-3 {
   font-family: 'Ubuntu', 'Lato', sans-serif;
   font-weight: 400;

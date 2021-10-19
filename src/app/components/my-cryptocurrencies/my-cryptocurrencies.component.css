@@ -5,11 +5,11 @@ img {
 }
 
 .positive {
-  color: green;
+  color: #78BC61;
 }
 
 .negative {
-  color: red;
+  color: #6B0F1A;
 }
 
 .bg {
@@ -18,11 +18,14 @@ img {
 
 .table-wrap:before {
   position: absolute;
-  background:url("https://res.cloudinary.com/cryptoworld/image/upload/v1612094648/blockchain_vochhk.jpg");
-  filter:blur(400px);
-  -o-filter:blur(4px);
-  -ms-filter:blur(4px);
-  -moz-filter:blur(4px);
+  background:linear-gradient(
+    rgba(0,0,0,0.8),
+    rgba(0,0,0,0.8)
+  );
+  filter: blur(400px);
+  -o-filter: blur(4px);
+  -ms-filter: blur(4px);
+  -moz-filter: blur(4px);
   -webkit-filter: blur(12px);
   content: '';
   left: 0;
@@ -39,4 +42,15 @@ img {
 table.table {
   position: relative;
   z-index: 2;
+}
+
+.btn-circle.btn-sm {
+  background: #481D24;
+  border-color: #481D24;
+  width: 30px;
+  height: 30px;
+  padding: 6px 0px;
+  border-radius: 15px;
+  font-size: 8px;
+  text-align: center;
 }

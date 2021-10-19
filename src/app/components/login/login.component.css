@@ -49,6 +49,19 @@
   }
 }
 
+.alert-danger {
+  background-color: #111;
+  color: #6B0F1A;
+  font-size: 12px;
+  border: 0px;
+}
+
+.alert-success{
+  background-color: #111;
+  color: whitesmoke;
+  border: 0px;
+}
+
 
 .login-main-text {
   margin-top: 20%;

@@ -1,0 +1,19 @@
+.middle-container{
+  position: center;
+  margin-top: 20px;
+}
+
+.content-wrap{
+  position: relative;
+  background:linear-gradient(
+    rgba(0,0,0,0.8),
+    rgba(0,0,0,0.8)
+  );
+  filter: blur(400px);
+  -o-filter: blur(4px);
+  -ms-filter: blur(4px);
+  -moz-filter: blur(4px);
+  -webkit-filter: blur(12px);
+  z-index: 1;
+  width: 100%;
+}
