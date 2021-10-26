@@ -1,19 +1,42 @@
-.middle-container{
-  position: center;
-  margin-top: 20px;
-}
-
-.content-wrap{
-  position: relative;
+.table-wrap:before {
+  margin-top: 15px;
+  position: absolute;
   background:linear-gradient(
-    rgba(0,0,0,0.8),
-    rgba(0,0,0,0.8)
+    rgba(0,0,0,0.95),
+    rgba(0,0,0,0.95)
   );
   filter: blur(400px);
   -o-filter: blur(4px);
   -ms-filter: blur(4px);
   -moz-filter: blur(4px);
   -webkit-filter: blur(12px);
+  content: '';
+  left: 0;
+  top: 0;
   z-index: 1;
   width: 100%;
+  height: 100%;
+}
+
+table.table {
+  margin-top: 15px;
+  position: center;
+  z-index: 2;
+}
+
+div.basic {
+  line-height: 18px;
+  overflow: hidden;
+  color: whitesmoke;
+  text-align: center;
+  position: center;
+  margin: 10px;
+  z-index: 2;
+}
+
+.table-style{
+  min-width: 100%;
+  text-align: center;
+  font-size: 17px;
+  color: white;
 }

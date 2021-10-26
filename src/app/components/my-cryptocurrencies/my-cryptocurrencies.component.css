@@ -12,10 +12,6 @@ img {
   color: #6B0F1A;
 }
 
-.bg {
-  color:darkslategrey;
-}
-
 .table-wrap:before {
   margin-top: 15px;
   position: absolute;
@@ -36,10 +32,6 @@ img {
   height: 100%;
 }
 
-.table-wrap {
-  position: relative;
-}
-
 table.table {
   margin-top: 15px;
   position: center;
@@ -55,4 +47,21 @@ table.table {
   border-radius: 15px;
   font-size: 8px;
   text-align: center;
+}
+
+div.basic {
+  line-height: 18px;
+  overflow: hidden;
+  color: whitesmoke;
+  text-align: center;
+  position: center;
+  margin: 10px;
+  z-index: 2;
+}
+
+.table-style{
+  min-width: 100%;
+  text-align: center;
+  font-size: 17px;
+  color: white;
 }

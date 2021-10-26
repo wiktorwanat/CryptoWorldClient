@@ -1,5 +1,5 @@
 
-img {
+.img {
   height: 30px;
   width: 30px;
   margin: auto;
@@ -40,13 +40,20 @@ img {
   height: 100%;
 }
 
-.table-wrap {
-  position: relative;
+div.basic {
+  line-height: 18px;
+  overflow: hidden;
+  color: whitesmoke;
+  text-align: center;
+  position: center;
+  margin: 10px;
+  z-index: 2;
 }
 
-table.table {
-  position: relative;
-  z-index: 2;
+.table-style{
+  min-width: 100%;
+  text-align: center;
+  font-size: 17px;
 }
 
 
