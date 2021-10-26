@@ -1,5 +1,5 @@
 .table-wrap:before {
-  margin-top: 15px;
+  margin-top: 70px;
   position: absolute;
   background:linear-gradient(
     rgba(0,0,0,0.95),
@@ -29,8 +29,9 @@ div.basic {
   overflow: hidden;
   color: whitesmoke;
   text-align: center;
-  position: center;
+  position: relative;
   margin: 10px;
+  margin-top:80px;
   z-index: 2;
 }
 

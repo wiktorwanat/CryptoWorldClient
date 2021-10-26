@@ -21,7 +21,7 @@ export class NotificationRequest {
   }
 }
 
-enum NotificationType{
+export enum NotificationType{
  BELOW, OVER
 }
 

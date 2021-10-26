@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RestApiService } from '../../services/rest-api.service';
-import { faBell, faMinus, faRing } from '@fortawesome/free-solid-svg-icons';
+import { faMinus } from '@fortawesome/free-solid-svg-icons';
 import { Cryptocurrency } from '../../shared/models/cryptocurrency.model';
 
 @Component({
@@ -12,7 +12,6 @@ export class MyCryptocurrenciesComponent implements OnInit {
 
   userFavouriteCryptocurrencies: Cryptocurrency[] = [];
   minusIcon = faMinus;
-  notificationIcon = faBell;
 
   constructor(public restApiService: RestApiService) {
   }

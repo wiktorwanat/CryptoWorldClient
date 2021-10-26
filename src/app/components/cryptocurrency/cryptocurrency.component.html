@@ -9,9 +9,14 @@
           <h2>What is {{cryptocurrency.name}}?</h2>
           <p>{{cryptocurrency.cryptocurrencyDetails.description}}</p>
         </div>
-        <button type="button" class="btn btn-secondary btn-sm" (click)="addCryptocurrencytoUserFavourite()">
+        <button type="button" class="btn btn-warning btn-sm"
+                (click)="addCryptocurrencytoUserFavourite()">
           <fa-icon [icon]="plusIcon"></fa-icon>
           Add to Favourite!
+        </button>
+        <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#exampleModalCenter">
+          <fa-icon [icon]="notificationIcon"></fa-icon>
+          Add Notification
         </button>
       </div>
     </div>
@@ -54,7 +59,8 @@
     </div>
     <div class="row info3">
       <div class="col basic">
-        <app-line-chart-component [historicalValues]="cryptocurrency.cryptocurrencyHistoricalValue.historicalValues" ></app-line-chart-component>
+        <app-line-chart-component
+          [historicalValues]="cryptocurrency.cryptocurrencyHistoricalValue.historicalValues"></app-line-chart-component>
       </div>
     </div>
     <div class="row info3">
@@ -103,3 +109,41 @@
     </div>
   </div>
 </div>
+
+<body>
+  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Notification</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <h5>Send notification when </h5>
+          <form>
+            <div class="form-group">
+              <label for="exampleInputEmail1">Type</label>
+              <select name="notificationType" class="form-control form-control-sm" [(ngModel)]="notification.notificationType">
+                <option *ngFor="let o of notificationTypesOptions">
+                  {{o.name}}
+                </option>
+              </select>
+              <small  class="form-text text-muted">Notification Type</small>
+            </div>
+            <div class="form-group">
+              <label for="exampleInputEmail1">Value</label>
+              <input name="notifcationValue" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" [(ngModel)]="notification.value">
+              <small class="form-text text-muted">Notification Value</small>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" (click)="createNotification()">Add</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>

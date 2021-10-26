@@ -15,7 +15,6 @@
             <th scope="col">7d Change</th>
             <th scope="col">Volume</th>
             <th scope="col"></th>
-            <th scope="col"></th>
           </tr>
           </thead>
           <tbody>
@@ -44,14 +43,8 @@
             <th scope="col">${{cryptocurrency.volume24h|number : '.2-2'}}</th>
             <th scope="col">
               <button class="btn btn-danger btn-circle btn-sm" (click)="removeFromFavourite(cryptocurrency.name)"
-                      placement="bottom" ngbTooltip="Remove from favourite">
+                      placement="left" ngbTooltip="Remove from favourite">
                 <fa-icon [icon]="minusIcon"></fa-icon>
-              </button>
-            </th>
-            <th scope="col">
-              <button class="btn btn-danger btn-circle btn-sm" routerLink="notifications" placement="bottom"
-                      ngbTooltip="Add notification">
-                <fa-icon [icon]="notificationIcon"></fa-icon>
               </button>
             </th>
           </tr>
