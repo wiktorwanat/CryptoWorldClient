@@ -1,58 +1,63 @@
 <div class="container">
-  <div class="table-wrap">
-    <body>
-    <table class="table col-md-10" style="color:white">
-      <thead>
-      <tr>
-        <th scope="col"></th>
-        <th scope="col">Symbol</th>
-        <th scope="col">Name</th>
-        <th scope="col">Price</th>
-        <th scope="col">MarketCap</th>
-        <th scope="col">1h Change</th>
-        <th scope="col">24h Change</th>
-        <th scope="col">7d Change</th>
-        <th scope="col">Volume</th>
-        <th scope="col"></th>
-        <th scope="col"></th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr *ngFor="let cryptocurrency of userFavouriteCryptocurrencies">
-        <th scope="col"><img class="img" src={{cryptocurrency.cryptocurrencyDetails.logoUrl}}></th>
-        <th scope="col">{{cryptocurrency.symbol}} </th>
-        <th scope="col">{{cryptocurrency.name}}</th>
-        <th scope="col">${{cryptocurrency.actualPrice|number : '.2-2'}}</th>
-        <th scope="col">${{cryptocurrency.marketCap|number : '.2-2'}}</th>
-        <th scope="col" [ngClass]="{
-                            'positive' : cryptocurrency.percent_change_1h > 0,
-                            'negative' : cryptocurrency.percent_change_1h< 0
-                         }">{{cryptocurrency.percent_change_1h|number : '.2-2'}}%
-        </th>
-        <th scope="col" [ngClass]="{
-                            'positive' : cryptocurrency.percent_change_24h > 0,
-                            'negative' : cryptocurrency.percent_change_24h< 0
-                         }">{{cryptocurrency.percent_change_24h|number : '.2-2'}}%
-        </th>
-        <th scope="col" [ngClass]="{
-                            'positive' : cryptocurrency.percent_change_7d > 0,
-                            'negative' : cryptocurrency.percent_change_7d< 0
-                         }">{{cryptocurrency.percent_change_7d|number : '.2-2'}}%
-        </th>
-        <th scope="col">${{cryptocurrency.volume24h|number : '.2-2'}}</th>
-        <th scope="col">
-          <button class="btn btn-danger btn-circle btn-sm" (click)="removeFromFavourite(cryptocurrency.name)" placement="bottom" ngbTooltip="Remove from favourite">
-            <fa-icon [icon]="minusIcon"></fa-icon>
-          </button>
-        </th>
-        <th scope="col">
-          <button class="btn btn-danger btn-circle btn-sm" routerLink="notifications" placement="bottom" ngbTooltip="Add notification">
-            <fa-icon [icon]="notificationIcon"></fa-icon>
-          </button>
-        </th>
-      </tr>
-      </tbody>
-    </table>
-    </body>
+  <div class="col table-wrap">
+    <div class="row">
+      <body>
+      <table class="table col-md-10" style="color:white">
+        <thead>
+        <tr>
+          <th scope="col"></th>
+          <th scope="col">Symbol</th>
+          <th scope="col">Name</th>
+          <th scope="col">Price</th>
+          <th scope="col">MarketCap</th>
+          <th scope="col">1h Change</th>
+          <th scope="col">24h Change</th>
+          <th scope="col">7d Change</th>
+          <th scope="col">Volume</th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr [routerLink]="['/cryptocurrency/', cryptocurrency.name]"
+            *ngFor="let cryptocurrency of userFavouriteCryptocurrencies">
+          <th scope="col"><img class="img" src={{cryptocurrency.cryptocurrencyDetails.logoUrl}}></th>
+          <th scope="col">{{cryptocurrency.symbol}} </th>
+          <th scope="col">{{cryptocurrency.name}}</th>
+          <th scope="col">${{cryptocurrency.actualPrice|number : '.2-2'}}</th>
+          <th scope="col">${{cryptocurrency.marketCap|number : '.2-2'}}</th>
+          <th scope="col" [ngClass]="{
+                              'positive' : cryptocurrency.percent_change_1h > 0,
+                              'negative' : cryptocurrency.percent_change_1h< 0
+                           }">{{cryptocurrency.percent_change_1h|number : '.2-2'}}%
+          </th>
+          <th scope="col" [ngClass]="{
+                              'positive' : cryptocurrency.percent_change_24h > 0,
+                              'negative' : cryptocurrency.percent_change_24h< 0
+                           }">{{cryptocurrency.percent_change_24h|number : '.2-2'}}%
+          </th>
+          <th scope="col" [ngClass]="{
+                              'positive' : cryptocurrency.percent_change_7d > 0,
+                              'negative' : cryptocurrency.percent_change_7d< 0
+                           }">{{cryptocurrency.percent_change_7d|number : '.2-2'}}%
+          </th>
+          <th scope="col">${{cryptocurrency.volume24h|number : '.2-2'}}</th>
+          <th scope="col">
+            <button class="btn btn-danger btn-circle btn-sm" (click)="removeFromFavourite(cryptocurrency.name)"
+                    placement="bottom" ngbTooltip="Remove from favourite">
+              <fa-icon [icon]="minusIcon"></fa-icon>
+            </button>
+          </th>
+          <th scope="col">
+            <button class="btn btn-danger btn-circle btn-sm" routerLink="notifications" placement="bottom"
+                    ngbTooltip="Add notification">
+              <fa-icon [icon]="notificationIcon"></fa-icon>
+            </button>
+          </th>
+        </tr>
+        </tbody>
+      </table>
+      </body>
+    </div>
   </div>
 </div>

@@ -18,6 +18,8 @@ import { NotificationsComponent } from './components/notifications/notifications
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { SearchPipe } from './pipes/search.pipe';
 import { NgbTooltipModule } from '@ng-bootstrap/ng-bootstrap';
+import { ChartsModule } from 'ng2-charts';
+import { LineChartComponentComponent } from './components/charts/line-chart-component/line-chart-component.component';
 
 
 
@@ -34,13 +36,15 @@ import { NgbTooltipModule } from '@ng-bootstrap/ng-bootstrap';
     HeaderComponent,
     NotificationsComponent,
     SearchPipe,
+    LineChartComponentComponent,
   ],
   imports: [
-    BrowserModule,
     AppRoutingModule,
+    BrowserModule,
+    ChartsModule,
     FormsModule,
-    HttpClientModule,
     FontAwesomeModule,
+    HttpClientModule,
     NgbTooltipModule
   ],
   providers: [

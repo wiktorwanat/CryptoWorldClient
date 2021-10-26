@@ -1,18 +1,20 @@
 <div class="container">
-  <div class="row">
+  <div class="row search-bar">
     <div class="col">
       <div class="input-group">
         <div class="form-outline search">
-          <input type="search" id="search-text" placeholder="Search Text" class="form-control" [(ngModel)]="searchText"/>
+          <input type="search" id="search-text" placeholder="Search Text" class="form-control"
+                 [(ngModel)]="searchText"/>
         </div>
         <button type="button" class="btn btn-dark btn-sm">
-          <fa-icon [icon]="searchIcon"></fa-icon> Find
+          <fa-icon [icon]="searchIcon"></fa-icon>
+          Find
         </button>
       </div>
     </div>
   </div>
-  <div class="row">
-    <div class="table-wrap">
+  <div class="col table-wrap">
+    <div class="row">
       <body>
       <table class="table cryptocurrencies col-md-10">
         <thead>

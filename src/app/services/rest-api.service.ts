@@ -3,7 +3,7 @@ import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http
 import { retry, catchError } from 'rxjs/operators';
 import { Observable, throwError } from 'rxjs';
 import { Cryptocurrency } from '../shared/models/cryptocurrency.model';
-import { User } from '../shared/models/user.model';
+import { Notification, NotificationRequest } from '../shared/models/notification.model';
 
 
 @Injectable({
@@ -60,6 +60,42 @@ export class RestApiService {
         retry(1),
         catchError(this.handleError)
       );
+  }
+
+
+  public getUserNotifications(): Observable<Notification[]> {
+    return this.http.get<Notification[]>(this.apiURL + '/notifications/myNotifications').pipe(
+      retry(1),
+      catchError(this.handleError)
+    );
+  }
+
+  public removeNotification(notificationId: number): Observable<any> {
+    return this.http.delete(this.apiURL + '/notifications/myNotifications/' + notificationId, this.httpOptions).pipe(
+      retry(1),
+      catchError(this.handleError)
+    );
+  }
+
+  public createNotification(notification: NotificationRequest): void{
+    this.http.post(this.apiURL + '/notifications', notification).pipe(
+      retry(1),
+      catchError(this.handleError)
+    );
+  }
+
+  public updateNotification(notification: Notification): void{
+    this.http.put(this.apiURL + '/notifications/' + notification.id, notification).pipe(
+      retry(1),
+      catchError(this.handleError)
+    );
+  }
+
+  public getAllNotifications(): Observable<Notification[]>{
+    return this.http.get<Notification[]>(this.apiURL + '/notifications/all').pipe(
+      retry(1),
+      catchError(this.handleError)
+    );
   }
 
   private handleError(error: HttpErrorResponse): Observable<never> {

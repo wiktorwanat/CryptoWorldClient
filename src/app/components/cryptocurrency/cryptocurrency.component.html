@@ -53,6 +53,11 @@
       </div>
     </div>
     <div class="row info3">
+      <div class="col basic">
+        <app-line-chart-component [historicalValues]="cryptocurrency.cryptocurrencyHistoricalValue.historicalValues" ></app-line-chart-component>
+      </div>
+    </div>
+    <div class="row info3">
       <div class="col routers basic" *ngIf="cryptocurrency.cryptocurrencyDetails.websiteUrl">
         <button type="button" class="btn btn-primary btn-sm" (click)="goToWebsite()">
           <fa-icon [icon]="websiteIcon"></fa-icon>
