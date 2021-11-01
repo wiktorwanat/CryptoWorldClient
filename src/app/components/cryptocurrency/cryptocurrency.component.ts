@@ -4,7 +4,8 @@ import { RestApiService } from '../../services/rest-api.service';
 import { Cryptocurrency } from '../../shared/models/cryptocurrency.model';
 import { faBell, faGlobe, faLink, faPlus } from '@fortawesome/free-solid-svg-icons';
 import { faGithub, faReddit, faTwitter } from '@fortawesome/free-brands-svg-icons';
-import { Notification, NotificationType } from '../../shared/models/notification.model';
+import { Notification, NotificationRequest, NotificationType } from '../../shared/models/notification.model';
+import { TokenStorageService } from '../../services/token-storage.service';
 
 
 @Component({
@@ -16,11 +17,8 @@ export class CryptocurrencyComponent implements OnInit {
 
   cryptocurrency: Cryptocurrency = new Cryptocurrency();
   cryptocurrencyName: any;
-  notification: Notification = new Notification();
-  notificationTypesOptions = [
-    { name: 'Price will go over', value: NotificationType.OVER },
-    { name: 'Price will drop to', value: NotificationType.BELOW }
-  ];
+  notificationRequest: NotificationRequest = new NotificationRequest();
+  notificationType: typeof NotificationType = NotificationType;
   plusIcon = faPlus;
   redirectIcon = faLink;
   websiteIcon = faGlobe;
@@ -32,7 +30,8 @@ export class CryptocurrencyComponent implements OnInit {
 
   constructor(private restApiService: RestApiService,
               private route: ActivatedRoute,
-              private router: Router) {
+              private router: Router,
+              private tokenStorageService: TokenStorageService) {
   }
 
   ngOnInit(): void {
@@ -51,8 +50,13 @@ export class CryptocurrencyComponent implements OnInit {
   }
 
   public createNotification(): void {
-    console.log(this.notification.value);
-    console.log(this.notification.notificationType);
+    this.notificationRequest.notificationOwner = this.getNotificationOwner();
+    this.notificationRequest.notificationCryptocurrencyName = this.cryptocurrency.name;
+    this.restApiService.createNotification(this.notificationRequest).subscribe(
+      data => {
+        console.log('notification created');
+      }
+    );
   }
 
   public goToWebsite(): void {
@@ -81,5 +85,15 @@ export class CryptocurrencyComponent implements OnInit {
 
   redirect(url: string): void {
     window.location.href = url;
+  }
+
+  getNotificationOwner(): string{
+    const isLoggedIn: boolean = !!this.tokenStorageService.getToken();
+    if (isLoggedIn) {
+      const user = this.tokenStorageService.getUser();
+      return user.username;
+    }else{
+      return '';
+    }
   }
 }

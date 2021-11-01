@@ -17,7 +17,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { NotificationsComponent } from './components/notifications/notifications.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { SearchPipe } from './pipes/search.pipe';
-import { NgbTooltipModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule, NgbTooltipModule } from '@ng-bootstrap/ng-bootstrap';
 import { ChartsModule } from 'ng2-charts';
 import { LineChartComponentComponent } from './components/charts/line-chart-component/line-chart-component.component';
 
@@ -45,7 +45,8 @@ import { LineChartComponentComponent } from './components/charts/line-chart-comp
     FormsModule,
     FontAwesomeModule,
     HttpClientModule,
-    NgbTooltipModule
+    NgbTooltipModule,
+    NgbModule
   ],
   providers: [
       { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }

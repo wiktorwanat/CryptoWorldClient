@@ -125,16 +125,15 @@
           <form>
             <div class="form-group">
               <label for="exampleInputEmail1">Type</label>
-              <select name="notificationType" class="form-control form-control-sm" [(ngModel)]="notification.notificationType">
-                <option *ngFor="let o of notificationTypesOptions">
-                  {{o.name}}
-                </option>
+              <select name="notificationType" class="form-control form-control-sm" [(ngModel)]="notificationRequest.notificationType">
+                <option [ngValue]="notificationType.OVER" >Price will go over</option>
+                <option [ngValue]="notificationType.BELOW" >Price will drop to</option>
               </select>
               <small  class="form-text text-muted">Notification Type</small>
             </div>
             <div class="form-group">
               <label for="exampleInputEmail1">Value</label>
-              <input name="notifcationValue" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" [(ngModel)]="notification.value">
+              <input name="notifcationValue" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" [(ngModel)]="notificationRequest.notificationValue">
               <small class="form-text text-muted">Notification Value</small>
             </div>
           </form>

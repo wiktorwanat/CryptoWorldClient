@@ -77,8 +77,8 @@ export class RestApiService {
     );
   }
 
-  public createNotification(notification: NotificationRequest): void{
-    this.http.post(this.apiURL + '/notifications', notification).pipe(
+  public createNotification(notification: NotificationRequest): Observable<any> {
+    return this.http.post(this.apiURL + '/notifications', notification).pipe(
       retry(1),
       catchError(this.handleError)
     );
