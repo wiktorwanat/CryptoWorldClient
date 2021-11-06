@@ -4,6 +4,7 @@ import { retry, catchError } from 'rxjs/operators';
 import { Observable, throwError } from 'rxjs';
 import { Cryptocurrency } from '../shared/models/cryptocurrency.model';
 import { Notification, NotificationRequest } from '../shared/models/notification.model';
+import { User } from '../shared/models/user.model';
 
 
 @Injectable({
@@ -70,7 +71,7 @@ export class RestApiService {
     );
   }
 
-  public removeNotification(notificationId: number): Observable<any> {
+  public removeNotification(notificationId: string): Observable<any> {
     return this.http.delete(this.apiURL + '/notifications/myNotifications/' + notificationId, this.httpOptions).pipe(
       retry(1),
       catchError(this.handleError)
@@ -93,6 +94,13 @@ export class RestApiService {
 
   public getAllNotifications(): Observable<Notification[]>{
     return this.http.get<Notification[]>(this.apiURL + '/notifications/all').pipe(
+      retry(1),
+      catchError(this.handleError)
+    );
+  }
+
+  public getAllUsers(): Observable<User[]>{
+    return this.http.get<User[]>(this.apiURL + '/users/all').pipe(
       retry(1),
       catchError(this.handleError)
     );

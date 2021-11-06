@@ -24,6 +24,11 @@
           <a href="/notifications" class="nav-link" routerLink="notifications">Notifications</a>
         </li>
       </ul>
+      <ul class="navbar-nav" *ngIf="isLoggedIn && showAdminBoard">
+        <li class="nav-item active">
+          <a href="/admin" class="nav-link" routerLink="admin">Admin board</a>
+        </li>
+      </ul>
       <ul class="navbar-nav ml-auto" *ngIf="!isLoggedIn">
         <li class="nav-item-active">
           <a href="/registration" class="nav-link" routerLink="registration">Sign Up</a>

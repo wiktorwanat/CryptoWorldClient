@@ -35,6 +35,13 @@ div.basic {
   z-index: 2;
 }
 
+.head{
+  margin-top:15px;
+  color: whitesmoke;
+  text-align: center;
+  position: relative;
+}
+
 .table-style{
   min-width: 100%;
   text-align: center;

@@ -45,7 +45,7 @@ export class CryptocurrencyComponent implements OnInit {
 
   public addCryptocurrencytoUserFavourite(): void {
     this.restApiService.addCryptocurrencytoUserFavouriteList(this.cryptocurrencyName).subscribe(
-      data => this.router.navigate(['/myCryptocurrencies'])
+      data => this.router.navigate(['/myCryptocurrency'])
     );
   }
 

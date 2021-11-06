@@ -23,6 +23,11 @@ export class HeaderComponent implements OnInit {
       const user = this.tokenStorageService.getUser();
       this.roles = user.roles;
       this.username = user.username;
+      for (const role of this.roles) {
+        if (role.includes('ROLE_ADMIN')){
+          this.showAdminBoard = true;
+        }
+      }
     }
   }
 

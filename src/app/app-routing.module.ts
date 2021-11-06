@@ -7,6 +7,7 @@ import { RegistrationComponent } from './components/registration/registration.co
 import { MyCryptocurrenciesComponent } from './components/my-cryptocurrencies/my-cryptocurrencies.component';
 import { HomeComponent } from './components/home/home.component';
 import { NotificationsComponent } from './components/notifications/notifications.component';
+import { AdminPanelComponent } from './components/admin-panel/admin-panel.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
@@ -16,7 +17,8 @@ const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'registration', component: RegistrationComponent},
   {path: 'myCryptocurrency', component: MyCryptocurrenciesComponent},
-  {path: 'notifications', component: NotificationsComponent}
+  {path: 'notifications', component: NotificationsComponent},
+  {path: 'admin', component: AdminPanelComponent}
 ];
 
 @NgModule({

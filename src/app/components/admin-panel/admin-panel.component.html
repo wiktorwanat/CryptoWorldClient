@@ -1,0 +1,85 @@
+<div class="container">
+  <div class="row head">
+    <div class="col">
+      <h1>System Data</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col table-wrap standard-column">
+      <div class="basic">
+        <h2>Users ({{users.length}})</h2>
+        <table class="table table-style">
+          <thead>
+          <tr style="color:white">
+            <th scope="col">Username</th>
+            <th scope="col">Email</th>
+            <th scopt="col">Roles</th>
+            <th scopt="col">Number of favourite Cryptocurrencies</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr
+            *ngFor="let user of users"
+            style="color:white">
+            <th scope="col">{{user.username}}</th>
+            <th scope="col">{{user.email}}</th>
+            <th scope="col">{{readRoles(user)}}</th>
+            <th scope="col">{{user.userCryptocurrency.length}}</th>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col table-wrap standard-column">
+      <div class="basic">
+        <h2>Cryptocurrencies ({{cryptocurrencies.length}})</h2>
+        <table class="table table-style">
+          <thead>
+          <tr style="color:white">
+            <th scope="col">Cryptocurrency</th>
+            <th scope="col">Price</th>
+            <th scope="col">Details</th>
+            <th scope="col">Delete</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr
+            *ngFor="let cryptocurrency of cryptocurrencies"
+            style="color:white">
+            <th scope="col">{{cryptocurrency.name}}</th>
+            <th scope="col">{{cryptocurrency.actualPrice}}</th>
+            <th scope="col">{{cryptocurrency.cryptocurrencyDetails}}</th>
+            <th scope="col">
+              <button class="btn btn-danger btn-circle btn-sm" (click)="removeCryptocurrency(cryptocurrency.name)"
+                      placement="bottom" ngbTooltip="Edit notification">
+                <fa-icon [icon]="deleteIcon"></fa-icon>
+              </button>
+            </th>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col table-wrap standard-column">
+      <div class="basic">
+        <h2>Notifications ({{notifications.length}})</h2>
+        <table class="table table-style">
+          <thead>
+          <tr style="color:white">
+            <th scope="col">Cryptocurrency</th>
+            <th scope="col">Type</th>
+            <th scopt="col">Value</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr
+            *ngFor="let notification of notifications"
+            style="color:white">
+            <th scope="col">{{notification.notificationType}}</th>
+            <th scope="col">{{notification.value}}</th>
+            <th scope="col">{{notification.cryptocurrency.name}}</th>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

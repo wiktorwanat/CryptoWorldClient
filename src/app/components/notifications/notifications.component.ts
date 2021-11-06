@@ -3,6 +3,7 @@ import { RestApiService } from '../../services/rest-api.service';
 import { Notification, NotificationRequest } from '../../shared/models/notification.model';
 import { Cryptocurrency } from '../../shared/models/cryptocurrency.model';
 import { TokenStorageService } from '../../services/token-storage.service';
+import { faMinus, faPen } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-notifications',
@@ -15,6 +16,8 @@ export class NotificationsComponent implements OnInit {
   userNotifications: Notification[] = [];
   newNotification: NotificationRequest = new NotificationRequest();
   username?: string;
+  minusIcon = faMinus;
+  editIcon = faPen;
 
   constructor(private restApiService: RestApiService,
               private tokenStorageService: TokenStorageService) {}
@@ -43,5 +46,14 @@ export class NotificationsComponent implements OnInit {
     this.restApiService.createNotification(this.newNotification);
   }
 
+  removeNotification(notification: Notification): void{
+    this.restApiService.removeNotification(notification.id);
+    this.loadUserNotifications();
+  }
+
+  editNotification(notification: Notification): void{
+    this.restApiService.updateNotification(notification);
+    this.loadUserNotifications();
+  }
 
 }

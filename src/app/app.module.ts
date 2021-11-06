@@ -20,6 +20,7 @@ import { SearchPipe } from './pipes/search.pipe';
 import { NgbModule, NgbTooltipModule } from '@ng-bootstrap/ng-bootstrap';
 import { ChartsModule } from 'ng2-charts';
 import { LineChartComponentComponent } from './components/charts/line-chart-component/line-chart-component.component';
+import { AdminPanelComponent } from './components/admin-panel/admin-panel.component';
 
 
 
@@ -37,6 +38,7 @@ import { LineChartComponentComponent } from './components/charts/line-chart-comp
     NotificationsComponent,
     SearchPipe,
     LineChartComponentComponent,
+    AdminPanelComponent,
   ],
   imports: [
     AppRoutingModule,

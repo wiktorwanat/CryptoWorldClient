@@ -3,6 +3,33 @@
     <div class="col table-wrap standard-column">
       <div class="basic">
         <h2>Your Notifications</h2>
+        <table class="table table-style">
+          <thead>
+          <tr style="color:white">
+            <th scope="col">Cryptocurrency</th>
+            <th scope="col">Type</th>
+            <th scopt="col">Value</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+
+          </tr>
+          </thead>
+          <tbody>
+          <tr
+            *ngFor="let notification of userNotifications"
+            style="color:white">
+            <th scope="col">{{notification.cryptocurrency.name}}</th>
+            <th scope="col">{{notification.notificationType}}</th>
+            <th scope="col">{{notification.value}}</th>
+            <th scope="col"><button class="btn btn-danger btn-circle btn-sm" (click)="removeNotification(notification)"
+              placement="bottom" ngbTooltip="Remove from favourite">
+              <fa-icon [icon]="minusIcon"></fa-icon>
+              </button></th>
+            <th scope="col"><button class="btn btn-primary btn-circle btn-sm" (click)="editNotification(notification)"
+                                    placement="bottom" ngbTooltip="Edit notification">
+              <fa-icon [icon]="editIcon"></fa-icon>
+            </button></th>
+        </table>
       </div>
     </div>
     <div class="col table-wrap">
