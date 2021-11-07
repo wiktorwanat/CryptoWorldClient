@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Cryptocurrency } from '../../shared/models/cryptocurrency.model';
 import { Notification } from '../../shared/models/notification.model';
-import { faMinus, faTrash } from '@fortawesome/free-solid-svg-icons';
+import { faTrash } from '@fortawesome/free-solid-svg-icons';
 import { User } from '../../shared/models/user.model';
 import { RestApiService } from '../../services/rest-api.service';
+import { CryptocurrencyDetails } from '../../shared/models/cryptocurrencyDetails.model';
 
 @Component({
   selector: 'app-admin-panel',
@@ -13,15 +14,15 @@ import { RestApiService } from '../../services/rest-api.service';
 export class AdminPanelComponent implements OnInit {
 
   cryptocurrencies: Cryptocurrency[] = [];
+  cryptocurrencyDetailsList: CryptocurrencyDetails[] = [];
   users: User[] = [];
-  notifications: Notification[] = [];
   deleteIcon = faTrash;
 
   constructor(private restApi: RestApiService) {}
 
   ngOnInit(): void {
     this.loadCryptocurrencies();
-    this.loadNotifications();
+    this.loadCryptocurrencyDetailsList();
     this.loadUsers();
   }
 
@@ -31,30 +32,31 @@ export class AdminPanelComponent implements OnInit {
     });
   }
 
-  loadNotifications(): void{
-    this.restApi.getAllNotifications().subscribe((data: {}) => {
-      this.notifications = data as Notification[];
-    });
-  }
-
   loadUsers(): void{
     this.restApi.getAllUsers().subscribe((data: {}) => {
       this.users = data as User[];
     });
   }
 
-  removeCryptocurrency(cryptocurrencyName: string): void{
-    this.restApi.deleteCryptocurrency(cryptocurrencyName);
+  loadCryptocurrencyDetailsList(): void{
+    this.restApi.getAllCryptocurrencyDetails().subscribe((data: {}) => {
+      this.cryptocurrencyDetailsList = data as CryptocurrencyDetails[];
+    });
   }
 
-  readRoles(user: User): string{
-    console.log(user.role);
+  removeCryptocurrency(cryptocurrencyName: string): void{
+    this.restApi.deleteCryptocurrency(cryptocurrencyName).subscribe();
+  }
 
-    if ( user.role !== undefined)
-    {
-      return user.role.toString();
+  removeCryptocurrencyDetails(cryptocurrencyDetailsName: string): void{
+    this.restApi.removeCryptocurrencyDetails(cryptocurrencyDetailsName).subscribe();
+  }
+
+  checkCryptocurrencyDetails(cryptocurrency: Cryptocurrency): string{
+    if (cryptocurrency.cryptocurrencyDetails != null){
+      return 'Details available';
     }else{
-      return 'missing';
+      return 'Missing Details';
     }
   }
 

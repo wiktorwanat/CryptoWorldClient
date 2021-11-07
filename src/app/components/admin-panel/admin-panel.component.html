@@ -1,9 +1,4 @@
 <div class="container">
-  <div class="row head">
-    <div class="col">
-      <h1>System Data</h1>
-    </div>
-  </div>
   <div class="row">
     <div class="col table-wrap standard-column">
       <div class="basic">
@@ -23,7 +18,7 @@
             style="color:white">
             <th scope="col">{{user.username}}</th>
             <th scope="col">{{user.email}}</th>
-            <th scope="col">{{readRoles(user)}}</th>
+            <th scope="col"><a  placement="bottom" ngbTooltip="1 - USER,2 - ADMIN">{{user.roles.length}}</a></th>
             <th scope="col">{{user.userCryptocurrency.length}}</th>
         </table>
       </div>
@@ -48,10 +43,10 @@
             style="color:white">
             <th scope="col">{{cryptocurrency.name}}</th>
             <th scope="col">{{cryptocurrency.actualPrice}}</th>
-            <th scope="col">{{cryptocurrency.cryptocurrencyDetails}}</th>
+            <th scope="col">{{checkCryptocurrencyDetails(cryptocurrency)}}</th>
             <th scope="col">
               <button class="btn btn-danger btn-circle btn-sm" (click)="removeCryptocurrency(cryptocurrency.name)"
-                      placement="bottom" ngbTooltip="Edit notification">
+                      placement="bottom" ngbTooltip="Delete Cryptocurrency">
                 <fa-icon [icon]="deleteIcon"></fa-icon>
               </button>
             </th>
@@ -62,22 +57,44 @@
   <div class="row">
     <div class="col table-wrap standard-column">
       <div class="basic">
-        <h2>Notifications ({{notifications.length}})</h2>
+        <h2>Cryptocurrency Details ({{cryptocurrencyDetailsList.length}})</h2>
         <table class="table table-style">
           <thead>
           <tr style="color:white">
             <th scope="col">Cryptocurrency</th>
-            <th scope="col">Type</th>
-            <th scopt="col">Value</th>
+            <th scope="col">Description</th>
+            <th scope="col">Logo Url</th>
+            <th scope="col">Website URl</th>
+            <th scope="col">Twitter URL</th>
+            <th scope="col">Forum URl</th>
+            <th scope="col">Reddit URl</th>
+            <th scope="col">Technical Documentation URl</th>
+            <th scope="col">Source Code URl</th>
+            <th scope="col">Date Of Creation</th>
+            <th scope="col">Delete</th>
           </tr>
           </thead>
           <tbody>
           <tr
-            *ngFor="let notification of notifications"
+            *ngFor="let cryptocurrencyDetails of cryptocurrencyDetailsList"
             style="color:white">
-            <th scope="col">{{notification.notificationType}}</th>
-            <th scope="col">{{notification.value}}</th>
-            <th scope="col">{{notification.cryptocurrency.name}}</th>
+            <th scope="col">{{cryptocurrencyDetails.name}}</th>
+            <th scope="col">{{cryptocurrencyDetails.description ? 'Available' : 'Not Available'}}</th>
+            <th scope="col">{{cryptocurrencyDetails.logoUrl ? 'Available' : 'Not Available'}}</th>
+            <th scope="col">{{cryptocurrencyDetails.websiteUrl ? 'Available' : 'Not Available'}}</th>
+            <th scope="col">{{cryptocurrencyDetails.twitterUrl ? 'Available' : 'Not Available'}}</th>
+            <th scope="col">{{cryptocurrencyDetails.forumUrl ? 'Available' : 'Not Available'}}</th>
+            <th scope="col">{{cryptocurrencyDetails.redditUrl ? 'Available' : 'Not Available'}}</th>
+            <th scope="col">{{cryptocurrencyDetails.technicalDocumentationUrl ? 'Available' : 'Not Available'}}</th>
+            <th scope="col">{{cryptocurrencyDetails.sourceCodeUrl ? 'Available' : 'Not Available'}}</th>
+            <th scope="col">{{cryptocurrencyDetails.dateOfCreation ? 'Available' : 'Not Available'}}</th>
+            <th scope="col">
+              <button class="btn btn-danger btn-circle btn-sm"
+                      (click)="removeCryptocurrencyDetails(cryptocurrencyDetails.name)"
+                      placement="left" ngbTooltip="Delete Details">
+                <fa-icon [icon]="deleteIcon"></fa-icon>
+              </button>
+            </th>
         </table>
       </div>
     </div>

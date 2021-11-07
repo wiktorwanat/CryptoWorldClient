@@ -5,6 +5,7 @@ import { Observable, throwError } from 'rxjs';
 import { Cryptocurrency } from '../shared/models/cryptocurrency.model';
 import { Notification, NotificationRequest } from '../shared/models/notification.model';
 import { User } from '../shared/models/user.model';
+import { CryptocurrencyDetails } from '../shared/models/cryptocurrencyDetails.model';
 
 
 @Injectable({
@@ -32,8 +33,8 @@ export class RestApiService {
       );
   }
 
-  public deleteCryptocurrency(cryptocurrencyname: string): void {
-    this.http.delete(this.apiURL + '/cryptocurrency/' + cryptocurrencyname)
+  public deleteCryptocurrency(cryptocurrencyname: string): Observable<any> {
+    return this.http.delete(this.apiURL + '/cryptocurrency/' + cryptocurrencyname)
       .pipe(
         retry(1),
         catchError(this.handleError)
@@ -101,6 +102,20 @@ export class RestApiService {
 
   public getAllUsers(): Observable<User[]>{
     return this.http.get<User[]>(this.apiURL + '/users/all').pipe(
+      retry(1),
+      catchError(this.handleError)
+    );
+  }
+
+  public getAllCryptocurrencyDetails(): Observable<CryptocurrencyDetails[]> {
+    return this.http.get<CryptocurrencyDetails[]>(this.apiURL + '/cryptocurrencyDetails/all').pipe(
+      retry(1),
+      catchError(this.handleError)
+    );
+  }
+
+  public removeCryptocurrencyDetails(cryptocurrencyDetailsName: string): Observable<any> {
+    return this.http.delete(this.apiURL + '/cryptocurrencyDetails/' + cryptocurrencyDetailsName + '/delete').pipe(
       retry(1),
       catchError(this.handleError)
     );
