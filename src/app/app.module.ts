@@ -21,6 +21,7 @@ import { NgbModule, NgbTooltipModule } from '@ng-bootstrap/ng-bootstrap';
 import { ChartsModule } from 'ng2-charts';
 import { LineChartComponentComponent } from './components/charts/line-chart-component/line-chart-component.component';
 import { AdminPanelComponent } from './components/admin-panel/admin-panel.component';
+import { CryptocurrencyCardComponent } from './components/cryptocurrency-card/cryptocurrency-card.component';
 
 
 
@@ -39,6 +40,7 @@ import { AdminPanelComponent } from './components/admin-panel/admin-panel.compon
     SearchPipe,
     LineChartComponentComponent,
     AdminPanelComponent,
+    CryptocurrencyCardComponent,
   ],
   imports: [
     AppRoutingModule,

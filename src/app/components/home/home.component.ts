@@ -1,7 +1,7 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
 import { Cryptocurrency } from '../../shared/models/cryptocurrency.model';
 import { RestApiService } from '../../services/rest-api.service';
-import { NgbCarousel, NgbSlideEvent, NgbSlideEventSource } from '@ng-bootstrap/ng-bootstrap';
+import { TokenStorageService } from '../../services/token-storage.service';
 
 @Component({
   selector: 'app-home',
@@ -11,9 +11,12 @@ import { NgbCarousel, NgbSlideEvent, NgbSlideEventSource } from '@ng-bootstrap/n
 export class HomeComponent {
 
   cryptocurrencyList: Cryptocurrency[] = [];
+  isLoggedIn = false;
 
-  constructor(private restApiService: RestApiService) {
+  constructor(private restApiService: RestApiService,
+              private tokenStorageService: TokenStorageService) {
     this.loadAllCryptocurrencies();
+    this.isLoggedIn = !!this.tokenStorageService.getToken();
   }
 
   loadAllCryptocurrencies(): void {

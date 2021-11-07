@@ -1,0 +1,51 @@
+<div class="card text-center mb-3 cardSize">
+  <img class="card-img-top imgSize" src="{{cryptocurrency.cryptocurrencyDetails.logoUrl}}" alt="Card image cap">
+  <div class="card-body">
+    <div class="card-header">
+      <h1>{{cryptocurrency.name}}</h1>
+    </div>
+    <div class="row info1">
+      <div class="col">
+        <h4>Actual Price</h4>
+        <h5>${{ cryptocurrency.actualPrice | number : '.2-2' }}</h5>
+      </div>
+      <div class="col">
+        <h4>MarketCap </h4>
+        <h5>${{ cryptocurrency.actualPrice|number : '.2-2' }}</h5>
+      </div>
+      <div class="col">
+        <h4>Volumen</h4>
+        <h5>${{ cryptocurrency.volume24h | number : '.2-2' }}</h5>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <h4>1h Change</h4>
+        <h5 [ngClass]="{
+                 'positive' : cryptocurrency.percent_change_1h > 0,
+                  'negative' : cryptocurrency.percent_change_1h < 0
+              }">{{ cryptocurrency.percent_change_1h | number : '.2-2' }}%</h5>
+      </div>
+      <div class="col basic">
+        <h4>24h Change</h4>
+        <h5 [ngClass]="{
+                 'positive' : cryptocurrency.percent_change_24h > 0,
+                 'negative' : cryptocurrency.percent_change_24h < 0
+              }">{{ cryptocurrency.percent_change_24h | number : '.2-2' }}%</h5>
+      </div>
+      <div class="col basic">
+        <h4>7d Change </h4>
+        <h5 [ngClass]="{
+                 'positive' : cryptocurrency.percent_change_7d > 0,
+                 'negative' : cryptocurrency.percent_change_7d < 0
+              }">{{ cryptocurrency.percent_change_7d | number : '.2-2' }}%</h5>
+      </div>
+    </div>
+    <div class="row row-cols-md-1 buttonStyle" >
+      <button type="button" class="btn btn-warning btn-sm" [routerLink]="loggedIn ? ['/cryptocurrency/', cryptocurrency.name] : ['/login']">
+        Check more
+        <fa-icon [icon]="moreIcon"></fa-icon>
+      </button>
+    </div>
+  </div>
+</div>
