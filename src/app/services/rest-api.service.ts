@@ -121,6 +121,13 @@ export class RestApiService {
     );
   }
 
+  public orderReport(): Observable<any>{
+    return this.http.post(this.apiURL + '/cryptocurrency/report', null).pipe(
+      retry(1),
+      catchError(this.handleError)
+    );
+  }
+
   private handleError(error: HttpErrorResponse): Observable<never> {
     let errorMessage = 'Unknown error!';
     if (error.error instanceof ErrorEvent) {

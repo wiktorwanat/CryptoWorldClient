@@ -9,14 +9,18 @@
           <h2>What is {{cryptocurrency.name}}?</h2>
           <p>{{cryptocurrency.cryptocurrencyDetails?.description}}</p>
         </div>
-        <button type="button" class="btn btn-warning btn-sm"
+        <button type="button" class="btn btn-warning btn-sm btn-mv"
                 (click)="addCryptocurrencytoUserFavourite()">
           <fa-icon [icon]="plusIcon"></fa-icon>
           Add to Favourite!
         </button>
-        <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#exampleModalCenter">
+        <button type="button" class="btn btn-info btn-sm btn-mv" data-toggle="modal" data-target="#exampleModalCenter">
           <fa-icon [icon]="notificationIcon"></fa-icon>
           Add Notification
+        </button>
+        <button type="button" class="btn btn-success btn-sm btn-mv" data-toggle="modal" data-target="#exampleModalCenter2">
+          <fa-icon [icon]="raportIcon"></fa-icon>
+          Order a Report
         </button>
       </div>
     </div>
@@ -27,7 +31,7 @@
       </div>
       <div class="col basic">
         <h2>MarketCap </h2>
-        <h3>${{ cryptocurrency.actualPrice|number : '.2-2' }}</h3>
+        <h3>${{ cryptocurrency.marketCap|number : '.2-2' }}</h3>
       </div>
       <div class="col basic">
         <h2>Volumen</h2>
@@ -140,9 +144,37 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary" (click)="createNotification()">Add</button>
+          <button type="button" class="btn btn-primary" (click)="createNotification()" data-dismiss="modal">Add</button>
         </div>
       </div>
     </div>
   </div>
+</body>
+
+<body>
+<div class="modal fade" id="exampleModalCenter2" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenter2" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="modal2title">Report</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <h5>You are ordering a report for {{cryptocurrency.name}}.</h5>
+        <p></p>
+        <h5>Report contain:</h5>
+        <h5>- details of the project</h5>
+        <h5>- cryptocurrency analysis</h5>
+        <h5>- a number of technical indicators</h5>
+        <h5>- current downloadable chart</h5>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" (click)="orderReport()" data-dismiss="modal">Order</button>
+      </div>
+    </div>
+  </div>
+</div>
 </body>

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { RestApiService } from '../../services/rest-api.service';
 import { Cryptocurrency } from '../../shared/models/cryptocurrency.model';
-import { faBell, faGlobe, faLink, faPlus } from '@fortawesome/free-solid-svg-icons';
+import { faBell, faFile, faGlobe, faLink, faPlus } from '@fortawesome/free-solid-svg-icons';
 import { faGithub, faReddit, faTwitter } from '@fortawesome/free-brands-svg-icons';
 import { Notification, NotificationRequest, NotificationType } from '../../shared/models/notification.model';
 import { TokenStorageService } from '../../services/token-storage.service';
@@ -26,6 +26,7 @@ export class CryptocurrencyComponent implements OnInit {
   redditIcon = faReddit;
   githubIcon = faGithub;
   notificationIcon = faBell;
+  raportIcon = faFile;
 
 
   constructor(private restApiService: RestApiService,
@@ -53,9 +54,12 @@ export class CryptocurrencyComponent implements OnInit {
     this.notificationRequest.notificationOwner = this.getNotificationOwner();
     this.notificationRequest.notificationCryptocurrencyName = this.cryptocurrency.name;
     this.restApiService.createNotification(this.notificationRequest).subscribe(
-      data => {
-        console.log('notification created');
-      }
+      data => {}
+    );
+  }
+  public orderReport(): void{
+    this.restApiService.orderReport().subscribe(
+      data => {}
     );
   }
 

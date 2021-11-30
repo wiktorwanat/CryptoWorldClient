@@ -76,3 +76,7 @@ div.basic {
   z-index: 2;
 }
 
+.btn-mv{
+  margin-right: 3px;
+  margin-left: 3px;
+}
